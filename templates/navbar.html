@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="eng" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+ 
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">       
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+     <title>{% block title_block %} Social {% endblock %}</title>
+ 
+        {% block css_block %} {% endblock %}
+     
+
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-sm bg-light">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <form class="form-inline" method="GET">
+              <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </nav> 
+          &nbsp; &nbsp; 
+          <li class="nav-item active"></li>
+            <a class="nav-link" href="{% url 'App_post:home' %}">Home</a>
+          </li>
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'App_login:log_out' %}">Logout</a>
+          </li>
+          <li class="nav-item">
+            {% if user.user_profile.profile_pic %}
+            <a class="nav-link" href="{% url 'App_login:profile' %}"><img src="/media/{{user.user_profile.profile_pic}}" width="40px" height="40px" class="rounded-circle"</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'App_login:profile' %}"><img src="/media/index.jpg" width="40px" height="40px" class="rounded-circle"</a>
+            {% endif %}
+          </li>
+        </ul>
+      
+      </nav>
+        <div class="container" style="padding-top:30px;">
+            {% block body_block %} {% endblock %}
+        </div>
+    </body> 
+</html>

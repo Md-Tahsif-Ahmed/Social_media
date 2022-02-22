@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="eng" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+ 
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">       
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+     <title>{% block title_block %} Social {% endblock %}</title>
+ 
+        {% block css_block %} {% endblock %}
+     
+
+    </head>
+    <body>
+        <div class="container" style="padding-top:20px;">
+            {% block body_block %} {% endblock %}
+        </div>
+    </body> 
+</html>
